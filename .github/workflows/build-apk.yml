@@ -30,7 +30,11 @@ jobs:
       - name: Create native project files
         run: |
           cd mobile
-          flutter create . --org com.projectsync --project-name mobile_app
+          flutter create . --force --org com.projectsync --project-name mobile_app
+          
+      - name: Patch Android minSdkVersion
+        run: |
+          sed -i 's/minSdkVersion .*/minSdkVersion 21/' mobile/android/app/build.gradle
           
       - name: Build APK
         run: |
