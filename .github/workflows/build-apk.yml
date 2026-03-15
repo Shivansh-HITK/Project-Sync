@@ -22,19 +22,21 @@ jobs:
         with:
           channel: 'stable'
           
-      - name: Install dependencies
-        run: |
-          cd mobile
-          flutter pub get
-          
+      - name: Flutter Doctor
+        run: flutter doctor
+        
       - name: Create native project files
         run: |
           cd mobile
-          flutter create . --force --org com.projectsync --project-name mobile_app
+          flutter create .
           
       - name: Patch Android minSdkVersion
         run: |
-          sed -i 's/minSdkVersion .*/minSdkVersion 21/' mobile/android/app/build.gradle
+          # The location of build.gradle might vary depending on flutter version
+          # Usually it is mobile/android/app/build.gradle
+          if [ -f mobile/android/app/build.gradle ]; then
+            sed -i 's/minSdkVersion .*/minSdkVersion 21/' mobile/android/app/build.gradle
+          fi
           
       - name: Build APK
         run: |
