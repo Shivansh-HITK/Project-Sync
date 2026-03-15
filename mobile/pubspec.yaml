@@ -1,0 +1,32 @@
+name: mobile_app
+description: "Cross-platform personal cloud sync system."
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.2.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.6
+  http: ^1.2.0
+  socket_io_client: ^3.0.0
+  flutter_secure_storage: ^9.0.0
+  provider: ^6.1.1
+  mobile_scanner: ^3.5.2
+  flutter_webrtc: ^0.10.4
+  shared_preferences: ^2.2.2
+  file_picker: ^6.1.1
+  path_provider: ^2.1.2
+  permission_handler: ^11.3.0
+  intl: ^0.19.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/
